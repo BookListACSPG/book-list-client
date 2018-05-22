@@ -12,7 +12,7 @@ var app = app || {};
     app.Book.all.map(books => $('#book-list').append(books.toHtml()));
   }
 
-model.bookView = bookView;
+module.bookView = bookView;
 
 })(app);
 
