@@ -33,7 +33,7 @@ Book.fetchAll = function (callback) {
   $.get('/api/v1/books')
     .then(Book.loadAll)
     .then(callback)
-    .error(errorCallback)
+    .error(app.errorView.errorCallback)
   }
 
 
@@ -45,7 +45,7 @@ Book.fetchAll = function (callback) {
 
 
 
-  
+
 module.Book = Book;
 
 })(app);
