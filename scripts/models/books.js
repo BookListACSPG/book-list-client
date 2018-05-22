@@ -41,15 +41,6 @@ Book.fetchAll = function (callback) {
   }
 
 
-
-
-
-
-
-
-
-
-
 module.Book = Book;
 
 })(app);
