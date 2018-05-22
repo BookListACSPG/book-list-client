@@ -12,7 +12,10 @@ var app = app || {};
     app.Book.all.map(books => $('#book-list').append(books.toHtml()));
   }
 
-
 model.bookView = bookView;
 
 })(app);
+
+$(document).ready(function() {
+  app.Book.fetchAll();
+});
