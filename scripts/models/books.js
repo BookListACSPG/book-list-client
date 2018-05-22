@@ -24,10 +24,28 @@ Book.prototype.toHtml = function () {
   return template(this);
 };
 
-Book.prototype.loadAll = function () {
-  
+//STATIC METHOD: Static method calls are made directly on the class and are not callable on instances of the class.
+Book.loadAll = function (rows) {
+  Book.all = rows.sort((a, b) => a.title - b.title).map(rows => new Book(rows));
 }
 
+Book.fetchAll = function (callback) {
+  $.get('/api/v1/books')
+    .then(Book.loadAll)
+    .then(callback)
+    .error(errorCallback)
+  }
+
+
+
+
+
+
+
+
+
+
+  
 module.Book = Book;
 
 })(app);
