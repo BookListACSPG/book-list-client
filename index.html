@@ -5,11 +5,11 @@
     <meta charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/icons.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
-    <link rel="stylesheet" href="vendor/styles/normalize.css">
-    <link rel="stylesheet" href="vendor/styles/icons.css">
     <!-- <link rel="stylesheet" href="vendor/styles/railscasts.css"> -->
 
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
@@ -52,15 +52,18 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
   
-    <script src="../scripts/index.js" type="text/javascript"></script>
-    <script src="../scripts/models/books.js" type="text/javascript"></script>
-    <script src="../scripts/views/book-view.js" type="text/javascript"></script>
-    <script src="../scripts/views/error-view.js" type="text/javascript"></script>
+    <script src="../scripts/index.js"></script>
+    <script src="../scripts/models/books.js"></script>
+    <script src="../scripts/views/book-view.js"></script>
+    <script src="../scripts/views/error-view.js"></script>
+    <script>
+      app.bookView.initIndexPage();
+    </script>
   </body>
   <footer>
     <div>
       <ul>
-        <li><a href="http://linked-in.com" target="_blank" class="icon-twitter3"> LINKED IN PROOF OF LIFE </a></li>
+        <li><a href="http://linkedin.com" target="_blank" class="icon-linkedin"> LINKED IN PROOF OF LIFE </a></li>
         <li><a href="http://github.com" target="_blank" class="icon-github"> GITHUB PROOF OF LIFE </a></li>
       </ul>
     </div>

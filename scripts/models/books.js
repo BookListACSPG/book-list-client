@@ -11,12 +11,13 @@ function Book (bookObject) {
   // this.image_url = bookObject.imageUrl;
   // this.description = bookObject.description;
 
-  Object.key(bookObject).forEach(key => {
-    this[key] = bookObject[key];
+  Object.keys(bookObject).forEach(keys => {
+    this[keys] = bookObject[keys];
   }, this);
 };
 
 Book.all = [];
+console.log(Book.all);
 
 Book.prototype.toHtml = function () {
   var template = Handlebars.compile($('#book-list-template').text());
@@ -26,14 +27,17 @@ Book.prototype.toHtml = function () {
 
 //STATIC METHOD: Static method calls are made directly on the class and are not callable on instances of the class.
 Book.loadAll = function (rows) {
-  Book.all = rows.sort((a, b) => a.title - b.title).map(rows => new Book(rows));
+  Book.all = rows.sort((a, b) => b.title - a.title).map(rows => new Book(rows));
+  console.log(rows.sort((a, b) => b.title - a.title).map(rows => new Book(rows)));
 }
 
 Book.fetchAll = function (callback) {
-  $.get('/api/v1/books')
+  $.get('http://localhost:3000/api/v1/books')
+  // $.get('https://www.googleapis.com/books/v1/volumes?q=harry+potter+stone')
+  // $.get('https://www.googleapis.com/books/v1/volumes')
     .then(Book.loadAll)
     .then(callback)
-    .error(app.errorView.errorCallback)
+    .catch(app.errorView.errorCallback)
   }
 
 
