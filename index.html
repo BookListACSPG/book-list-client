@@ -16,16 +16,36 @@
 
     <!-- Creating the Handlebars template to display the booklist template on index.html -->
 
-    <script id="book-list-template" type="text/x-handlebars-template">
-      <article class="clearfix" data-author="{{author}}">
+    <!-- ERROR HANDLING -->
+    <script type="text/x-handlebars-template" id="error-template">
+      <h3>Something that you wanted to happen didn't happen. Sorry.</h3>
+      <p>{{status}}: {{statusText}}</p>
+    </script>
+
+    <!-- BOOK DISPLAY HANDLING -->
+    <script type="text/x-handlebars-template" id="book-list-template">
+      <li class="book-items" data-bookid={{book_id}}>
+        <div class="book-container">
+          <img src={{image_url}}>
+          <div class="book-overlay">
+            <h3>{{title}}</h3>
+            <p>{{author}}</p>
+          </div>
+        </div>
+      </li>
+
+
+
+
+      <!-- <article class="clearfix" data-author="{{author}}">
       
        <!-- <article data-description="{{description}}"> -->
        
-      <header>
+      <!-- <header>
           <div>
             <address><a href="{{image_Url}}">{{image_Url}}</a></address>
            <!-- {{publishStatus}} -->
-          </div>
+          <!-- </div>
       <div class = "book-info">    
       <h1>{{title}}</h1>
       <h2>{{author}}</h2> 
@@ -33,29 +53,40 @@
         <li id="book-list" data-book-list="{{book-list}}"> </li>
       </ul>
       </div>
-    </header>
+    </header> -->
     <!-- <section class="book-list-body">{{{body}}}</section> -->
     <!-- <a href="#" class="read-on">Read on &rarr;</a> -->
-  </article>
+  <!-- </article> -->
 
 </script>
 </head>
 
-  <body>
-    <h1> Hello, World ! </h1>
-    <h2> Proof of Life </h2>
-    <section>
-      <div>
 
-      </div>
-    </section> 
+  <body>
+    <header>
+      <h1>Amy's and Sam's Awesome</h1>
+      <h2>Week 3 Project</h2>
+    </header>
+  <main>
+    <section class="error-view container">
+      <h2>The book you wanted displayed was too shy to perform at the moment. We're working through its stagefright and will be back with you as soon as we can.</h2>
+    </section>
+
+    <section class="book-view container">
+      <h2 class="view-title">Book Collection</h2>
+      <section class="book-list">
+        <ul id="book-list"></ul>
+      </section>
+    </section>
+    </main>
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
   
-    <script src="../scripts/index.js"></script>
-    <script src="../scripts/models/books.js"></script>
-    <script src="../scripts/views/book-view.js"></script>
     <script src="../scripts/views/error-view.js"></script>
+    <script src="../scripts/views/book-view.js"></script>
+    <script src="../scripts/models/books.js"></script>
+    <script src="../scripts/index.js"></script>
     <script>
       app.bookView.initIndexPage();
     </script>
@@ -63,8 +94,8 @@
   <footer>
     <div>
       <ul>
-        <li><a href="http://linkedin.com" target="_blank" class="icon-linkedin"> LINKED IN PROOF OF LIFE </a></li>
-        <li><a href="http://github.com" target="_blank" class="icon-github"> GITHUB PROOF OF LIFE </a></li>
+        <li><a href="http://linkedin.com" target="_blank" class="icon-linkedin"></a></li>
+        <li><a href="http://github.com" target="_blank" class="icon-github"></a></li>
       </ul>
     </div>
   </footer>
