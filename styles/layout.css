@@ -1,0 +1,53 @@
+body {
+  /* width: 640px; */
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+  margin: auto;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.view-title {
+  margin: auto;
+  padding: 1em 0em;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+div.book-container {
+  background-color: rgb(85, 124, 175);
+  margin: auto;
+  padding: 2em 0em;
+  text-align: center;
+}
+
+div.book-container img {
+  width: 7em;
+}
+
+div.book-container h3 {
+  font-size: 2em;
+  margin: 0em;
+}
+
+div.book-container p {
+  font-size: 1.5em;
+  margin: 0em;
+}
+
+footer li {
+  color: rgb(85, 124, 175);
+  display: inline-block;
+  font-size: 2em;
+  margin: auto;
+  text-align: left;
+}
+
