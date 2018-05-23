@@ -17,7 +17,6 @@ function Book (bookObject) {
 };
 
 Book.all = [];
-// console.log(Book.all);
 
 Book.prototype.toHtml = function () {
   //Incomplete code line 23
@@ -34,14 +33,28 @@ Book.loadAll = (rows) => {
 }
 
 Book.fetchAll = function (callback) {
-  // $.get('http://localhost:3000/api/v1/books')
-  // console.log(${app.ENVIRONMENT.apiUrl})
   $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books`)
-  // $.get('https://www.googleapis.com/books/v1/volumes')
     .then(Book.loadAll)
     .then(callback)
     .catch(app.errorView.errorCallback)
   }
+
+  Book.createBook = book => {
+    $.post(`${app.ENVIRONMENT.apiUrl}/book/add`, book)
+    .then(() => page('/'))
+    .catch(app.errorView.errorCallback);
+  }
+
+  Book.fetchOne = (ctx, next) => {
+    console.log(ctx);
+    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books/${book_id}`)
+    .then($('.book-item').hide())
+    .then($(`.book-item[data-book-id="${ctx.params.book_id}"]`).show())
+    .then(next)
+  }
+
+  
+
 
 
 module.Book = Book;

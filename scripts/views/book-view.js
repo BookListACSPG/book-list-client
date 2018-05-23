@@ -32,6 +32,21 @@ var app = app || {};
     })
   };
 
+  bookView.initDetailPage = function () {
+    $('.view-details').on('click', function(event) {
+      event.preventDefault();
+      console.log("button works");
+
+      $('.container').hide();
+      app.showOnly('detail-view');
+
+      var template = Handlebars.compile($('#book-detail-template').text());
+
+      $('.detail-view').append(app.render('#book-detail-template'));
+    })
+    console.log('trying anything')
+  }
+
 module.bookView = bookView;
 
 })(app);

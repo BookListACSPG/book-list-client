@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="styles/icons.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
-    <link rel="stylesheet" href="styles/modules.css">
-    <!-- <link rel="stylesheet" href="vendor/styles/railscasts.css"> -->
+
+    <!-- ADD MODULE FILES HERE -->
 
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
 
@@ -30,35 +30,24 @@
           <div class="book-overlay">
             <h3>{{title}}</h3>
             <p>{{author}}</p>
+            <input class="view-details" type="button" value="view details">
           </div>
         </div>
       </li>
+    </script>
 
-
-
-
-      <!-- <article class="clearfix" data-author="{{author}}">
-      
-       <!-- <article data-description="{{description}}"> -->
-       
-      <!-- <header>
-          <div>
-            <address><a href="{{image_Url}}">{{image_Url}}</a></address>
-           <!-- {{publishStatus}} -->
-          <!-- </div>
-      <div class = "book-info">    
-      <h1>{{title}}</h1>
-      <h2>{{author}}</h2> 
-      <ul>
-        <li id="book-list" data-book-list="{{book-list}}"> </li>
-      </ul>
+    <!-- BOOK DETAIL DISPLAY HANDLING -->
+    <script type="text/x-handlebars-template" id="book-detail-template">
+      <div class="book-detail">
+        <h2>{{title}}</h2>
+          <section>
+            <div>{{author}}</div>
+            <div>isbn {{isbn}}</div>
+          </section>
+        <div><img src={{image_url}}></div>
+        <div>{{{description}}}</div>
       </div>
-    </header> -->
-    <!-- <section class="book-list-body">{{{body}}}</section> -->
-    <!-- <a href="#" class="read-on">Read on &rarr;</a> -->
-  <!-- </article> -->
-
-</script>
+    </script>
 </head>
 
 
@@ -78,6 +67,8 @@
         <ul id="book-list"></ul>
       </section>
     </section>
+
+    <section class="detail-view container"></section>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
