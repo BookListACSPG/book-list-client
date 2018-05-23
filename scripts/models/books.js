@@ -29,7 +29,7 @@ Book.prototype.toHtml = function () {
 //STATIC METHOD: Static method calls are made directly on the class and are not callable on instances of the class.
 Book.loadAll = (rows) => {
   Book.all = rows.sort((a, b) => b.title - a.title).map(rows => new Book(rows));
-  console.log(rows.sort((a, b) => b.title - a.title).map(rows => new Book(rows)));
+  // console.log(rows.sort((a, b) => b.title - a.title).map(rows => new Book(rows)));
 }
 
 Book.fetchAll = function (callback) {
@@ -50,7 +50,16 @@ Book.fetchAll = function (callback) {
     $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books/${book_id}`)
     .then($('.book-item').hide())
     .then($(`.book-item[data-book-id="${ctx.params.book_id}"]`).show())
+    .then(
+      $('.view-details').on('click', function(event) {
+        event.preventDefault();
+        console.log("button works");
+  
+        $('.container').hide();
+        app.showOnly('detail-view');
+    }))
     .then(next)
+
   }
 
   
