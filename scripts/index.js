@@ -4,7 +4,7 @@ var app = app || {};
 
 (function(module) {
 
-  let productionApiUrl = 'https://booklistacspg.github.io/book-list-client/';
+  let productionApiUrl = 'https://ac-spg-booklist.herokuapp.com';
   let developmentApiUrl = 'http://localhost:3000';
 
   module.isProduction = /^(?!localhost|127)/.test(window.location.hostname);

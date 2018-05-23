@@ -17,7 +17,7 @@ function Book (bookObject) {
 };
 
 Book.all = [];
-console.log(Book.all);
+// console.log(Book.all);
 
 Book.prototype.toHtml = function () {
   //Incomplete code line 23
@@ -35,6 +35,7 @@ Book.loadAll = (rows) => {
 
 Book.fetchAll = function (callback) {
   // $.get('http://localhost:3000/api/v1/books')
+  // console.log(${app.ENVIRONMENT.apiUrl})
   $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books`)
   // $.get('https://www.googleapis.com/books/v1/volumes')
     .then(Book.loadAll)
