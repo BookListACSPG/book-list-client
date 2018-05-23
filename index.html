@@ -30,15 +30,17 @@
           <div class="book-overlay">
             <h3>{{title}}</h3>
             <p>{{author}}</p>
-            <input class="view-details" type="button" value="view details">
+            <!-- change to a and give it path put it in route -->
+            <a href="/books/{{book_id}}">View Detail</a>
+            <!-- <input class="view-details" type="button" value="view details"> -->
           </div>
         </div>
       </li>
     </script>
 
     <!-- BOOK DETAIL DISPLAY HANDLING -->
-    <script type="text/x-handlebars-template" id="book-detail-template">
-      <div class="book-detail">
+    <script type="text/x-handlebars-template" id="book-detail-template" class="{{book_id}}">
+      <div id="book-detail">
         <h2>{{title}}</h2>
           <section>
             <div>{{author}}</div>
@@ -68,27 +70,29 @@
       </section>
     </section>
 
-    <section class="detail-view container"></section>
+    <section class="detail-view container">
+      <div class="details"></div>
+    </section>
     </main>
 
+    <footer>
+      <div>
+        <ul>
+          <li><a href="http://linkedin.com" target="_blank" class="icon-linkedin"></a></li>
+          <li><a href="http://github.com" target="_blank" class="icon-github"></a></li>
+        </ul>
+      </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/page.js/1.8.6/page.min.js"></script>
-  
     <script src="./scripts/views/error-view.js"></script>
     <script src="./scripts/views/book-view.js"></script>
     <script src="./scripts/models/books.js"></script>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/views/routes.js"></script>
     <script>
       app.bookView.initIndexPage();
     </script>
   </body>
-  <footer>
-    <div>
-      <ul>
-        <li><a href="http://linkedin.com" target="_blank" class="icon-linkedin"></a></li>
-        <li><a href="http://github.com" target="_blank" class="icon-github"></a></li>
-      </ul>
-    </div>
-  </footer>
 </html>

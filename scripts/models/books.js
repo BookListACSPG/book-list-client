@@ -46,20 +46,10 @@ Book.fetchAll = function (callback) {
   }
 
   Book.fetchOne = (ctx, next) => {
-    console.log(ctx);
-    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books/${book_id}`)
-    .then($('.book-item').hide())
-    .then($(`.book-item[data-book-id="${ctx.params.book_id}"]`).show())
-    .then(
-      $('.view-details').on('click', function(event) {
-        event.preventDefault();
-        console.log("button works");
-  
-        $('.container').hide();
-        app.showOnly('detail-view');
-    }))
+    // console.log(ctx);
+    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books/${ctx.params.book_id}`)
+    // .then(console.log)
     .then(next)
-
   }
 
   
