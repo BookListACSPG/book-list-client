@@ -1,5 +1,12 @@
 'use strict';
 
+$(function () {
+  $('.nav').hide();
+  $('#menu').on('click', function (event) {
+    $('.nav').toggle();
+});
+});
+
 var app = app || {};
 
 (function(module) {
@@ -56,3 +63,5 @@ module.bookView = bookView;
 $(document).ready(function() {
   app.Book.fetchAll(app.bookView.initIndexPage);
 });
+
+
