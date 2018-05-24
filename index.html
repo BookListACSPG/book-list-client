@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="styles/layout.css">
 
     <!-- ADD MODULE FILES HERE -->
+    <link rel="stylesheet" href="styles/modules/error.css">
+    <link rel="stylesheet" href="styles/modules/header.css">
+    <link rel="stylesheet" href="styles/modules/book-main.css">
+    <link rel="stylesheet" href="styles/modules/detail-main.css">
+    <link rel="stylesheet" href="styles/modules/form-main.css">
+    <link rel="stylesheet" href="styles/modules/footer.css">
 
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
 
@@ -30,9 +36,7 @@
           <div class="book-overlay">
             <h3>{{title}}</h3>
             <p>{{author}}</p>
-            <!-- change to a and give it path put it in route -->
             <a href="/books/{{book_id}}">View Detail</a>
-            <!-- <input class="view-details" type="button" value="view details"> -->
           </div>
         </div>
       </li>
@@ -78,6 +82,13 @@
         <header>
           <h1>Amy's and Sam's Awesome</h1>
           <h2>Week 3 Project</h2>
+
+          <nav>
+            <ul>
+              <li><a href="">View All Books</a></li>
+              <li><a href="/books/add">Add A New Book</a></li>
+            </ul>
+          </nav>
         </header>
         <main>
           <section class="error-view container">
@@ -91,13 +102,13 @@
             </section>
           </section>
           
-          <section class="detail-view container">
-            <div class="details"></div>
+          <section id="detail-view container">
+            <div id="details"></div>
           </section>
           
-          <section class="new-book-container">
+          <section class="new-book container">
             <div class="new-book">
-              <a href=" TODO - *** I'm not sure where this goes yet ***"> add a new book</a>
+              <!-- <a href="/books/add"> add a new book</a> -->
               <form action="#" id="new-book-form">
                 <label>
                   <input type="text" id="book-title" placeholder="title" required>
@@ -114,14 +125,15 @@
                 <label>
                   <input type="textarea" id="book-description" placeholder="description. . ." required>
                 </label>
-                <label>
-                  <input type="button" id="book-add-submit"> submit
-                </label>
+                <!-- <label> -->
+                  <!-- <input type="button" id="book-add-submit"> submit -->
+                  <button type="submit" id="button">submit</button>
+                <!-- </label> -->
               </form>
             </div>
           </section>
 
-    </main>
+      </main>
 
     <footer>
       <div>
