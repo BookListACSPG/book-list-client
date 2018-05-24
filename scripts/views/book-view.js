@@ -18,6 +18,7 @@ var app = app || {};
 
     $('#add-form').on('submit', function(event) {
       event.preventDefault();
+      console.log('This hit the form submit button');
 
       let bookFormData = new Book ({
         author: $('#book-author').val(),
@@ -26,7 +27,8 @@ var app = app || {};
         isbn: $('#book-isbn').val(),
         description: $('#book-description').val(),
       });
-
+      console.log(bookFormData);
+      
       //WHERE IS OUR CREATEBOOK METHOD?
       module.Book.createBook(bookFormData);
     })
@@ -35,8 +37,8 @@ var app = app || {};
   bookView.initDetailPage = function (ctx) {
     console.log(ctx);
 
-    $('#details').empty();
-    app.showOnly('.detail-view');
+    $('#detail-view').empty();
+    app.showOnly('#details');
 
     $('#details').append(app.render('book-detail-template', ctx[0]));
   }
