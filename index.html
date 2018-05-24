@@ -50,29 +50,75 @@
         <div>{{{description}}}</div>
       </div>
     </script>
-</head>
 
 
-  <body>
-    <header>
-      <h1>Amy's and Sam's Awesome</h1>
-      <h2>Week 3 Project</h2>
-    </header>
-  <main>
-    <section class="error-view container">
-      <h2>The book you wanted displayed was too shy to perform at the moment. We're working through its stagefright and will be back with you as soon as we can.</h2>
-    </section>
+        <!-- FORM ADD DISPLAY HANDLING -->
+        <!-- Thought about using handlebars here, but not sure this is template-able because it's a form -->
+        <!-- Moving all the form tags into the body at the moment, but leaving the handlebars stuff here in case -->
 
-    <section class="book-view container">
-      <h2 class="view-title">Book Collection</h2>
-      <section class="book-list">
-        <ul id="book-list"></ul>
-      </section>
-    </section>
+        <!-- <script type="text/x-handlebars-template" id="book-detail-template" class="{{book_id}}">
+          <div id="book-detail">
+            <h2>{{title}}</h2>
+              <section>
+                <div>{{author}}</div>
+                <div>isbn {{isbn}}</div>
+              </section>
+            <div><img src={{image_url}}></div>
+            <div>{{{description}}}</div>
+          </div>
+        </script> -->
 
-    <section class="detail-view container">
-      <div class="details"></div>
-    </section>
+        
+        
+      </head>
+      
+      
+      <body>
+        <header>
+          <h1>Amy's and Sam's Awesome</h1>
+          <h2>Week 3 Project</h2>
+        </header>
+        <main>
+          <section class="error-view container">
+            <h2>The book you wanted displayed was too shy to perform at the moment. We're working through its stagefright and will be back with you as soon as we can.</h2>
+          </section>
+          
+          <section class="book-view container">
+            <h2 class="view-title">Book Collection</h2>
+            <section class="book-list">
+              <ul id="book-list"></ul>
+            </section>
+          </section>
+          
+          <section class="detail-view container">
+            <div class="details"></div>
+          </section>
+          
+          <section class="new-book-container">
+            <div class="new-book">
+              <a href=" TODO - *** I'm not sure where this goes yet ***"> add a new book</a>
+              <form action="#" id="new-book-form">
+                <label>
+                  <input type="text" id="book-title" placeholder="title" required>
+                </label>
+                <label>
+                  <input type="text" id="book-author" placeholder="author" required>
+                </label>
+                <label>
+                  <input type="text" id="book-isbn" placeholder="isbn" required>
+                  </label>
+                <label>
+                  <input type="text" id="book-image-url" placeholder="image url" required>
+                </label>
+                <label>
+                  <input type="textarea" id="book-description" placeholder="description. . ." required>
+                </label>
+                <label>
+                  <input type="button" id="book-add-submit"> submit
+                </label>
+              </form>
+            </div>
+          </section>
     </main>
 
     <footer>
@@ -83,6 +129,7 @@
         </ul>
       </div>
     </footer>
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/page.js/1.8.6/page.min.js"></script>
@@ -91,8 +138,6 @@
     <script src="./scripts/models/books.js"></script>
     <script src="./scripts/index.js"></script>
     <script src="./scripts/views/routes.js"></script>
-    <script>
-      app.bookView.initIndexPage();
-    </script>
+    <script>   app.bookView.initIndexPage();   </script>
   </body>
 </html>
