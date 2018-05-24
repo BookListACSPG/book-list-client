@@ -25,7 +25,6 @@ Book.prototype.toHtml = function () {
 
 //STATIC METHOD: Static method calls are made directly on the class and are not callable on instances of the class.
 Book.loadAll = (rows) => {
-  console.log(Book.all);
   Book.all = rows.sort((a, b) => b.title - a.title).map(rows => new Book(rows));
 }
 
@@ -43,9 +42,7 @@ Book.fetchAll = function (callback) {
   }
 
   Book.fetchOne = (ctx, next) => {
-    // console.log(ctx);
     $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books/${ctx.params.book_id}`)
-    // .then(console.log)
     .then(next)
   }
 
