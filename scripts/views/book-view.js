@@ -7,10 +7,10 @@ var app = app || {};
   const bookView = {};
 
   bookView.initIndexPage = () => {
-    module.showOnly('.book-view');
-    // $('.container').hide();
-    // $('.book-view').show();
+    $('#book-list').empty();
+    app.showOnly('.book-view');
     module.Book.all.map(books => $('#book-list').append(books.toHtml()));
+    console.log('this initIndexPage is being logged')
   }
 
   bookView.initAddBook = function () {
@@ -32,18 +32,13 @@ var app = app || {};
     })
   };
 
-  bookView.initDetailPage = function () {
-    // $('.view-details').on('click', function(event) {
-    //   event.preventDefault();
-    //   console.log("button works");
+  bookView.initDetailPage = function (ctx) {
+    console.log(ctx);
 
-    //   $('.container').hide();
-    //   app.showOnly('detail-view');
+    $('.details').empty();
+    app.showOnly('#book-detail');
 
-      var template = Handlebars.compile($('#book-detail-template').text());
-
-      $('.detail-view').append(app.render('#book-detail-template'));
-    console.log('trying anything')
+    $('#book-detail').append(app.render('book-detail-template', ctx[0]));
   }
 
 module.bookView = bookView;
