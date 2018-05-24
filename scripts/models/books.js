@@ -36,7 +36,7 @@ Book.fetchAll = function (callback) {
   }
 
   Book.createBook = book => {
-    $.post(`${app.ENVIRONMENT.apiUrl}/book/add`, book)
+    $.post(`${app.ENVIRONMENT.apiUrl}/api/v1/books`, book)
     .then(() => page('/'))
     .catch(app.errorView.errorCallback);
   }
