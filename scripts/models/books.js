@@ -19,17 +19,14 @@ function Book (bookObject) {
 Book.all = [];
 
 Book.prototype.toHtml = function () {
-  //Incomplete code line 23
-  // return app.render('book-list-template', this)
   var template = Handlebars.compile($('#book-list-template').text());
-
   return template(this);
 };
 
 //STATIC METHOD: Static method calls are made directly on the class and are not callable on instances of the class.
 Book.loadAll = (rows) => {
+  console.log(Book.all);
   Book.all = rows.sort((a, b) => b.title - a.title).map(rows => new Book(rows));
-  // console.log(rows.sort((a, b) => b.title - a.title).map(rows => new Book(rows)));
 }
 
 Book.fetchAll = function (callback) {
