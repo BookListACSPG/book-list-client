@@ -8,13 +8,18 @@ var app = app || {};
 
   bookView.initIndexPage = () => {
     $('#book-list').empty();
+    $('#details').empty();
+
     app.showOnly('.book-view');
     module.Book.all.map(books => $('#book-list').append(books.toHtml()));
     console.log('this initIndexPage is being logged')
   }
 
   bookView.initAddBook = function () {
-    app.showOnly('.add-view');
+    $('#book-list').empty();
+    $('#details').empty();
+
+    app.showOnly('.new-book');
 
     $('#add-form').on('submit', function(event) {
       event.preventDefault();
@@ -35,9 +40,11 @@ var app = app || {};
   };
 
   bookView.initDetailPage = function (ctx) {
+    $('#book-list').empty();
+    $('#details').empty();
+
     console.log(ctx);
 
-    $('#detail-view').empty();
     app.showOnly('#details');
 
     $('#details').append(app.render('book-detail-template', ctx[0]));
