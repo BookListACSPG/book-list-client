@@ -12,7 +12,6 @@ var app = app || {};
 
     app.showOnly('.book-view');
     module.Book.all.map(books => $('#book-list').append(books.toHtml()));
-    console.log('this initIndexPage is being logged')
   }
 
   bookView.initAddBook = function () {
@@ -21,11 +20,11 @@ var app = app || {};
 
     app.showOnly('.new-book');
 
-    $('#add-form').on('submit', function(event) {
+    $('#new-book-form').on('submit', function(event) {
       event.preventDefault();
       console.log('This hit the form submit button');
 
-      let bookFormData = new Book ({
+      let bookFormData = new app.Book ({
         author: $('#book-author').val(),
         title: $('#book-title').val(),
         imageUrl: $('#book-image-url').val(),
