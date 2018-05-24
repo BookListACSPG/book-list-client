@@ -35,10 +35,10 @@ var app = app || {};
   bookView.initDetailPage = function (ctx) {
     console.log(ctx);
 
-    $('.details').empty();
-    app.showOnly('#book-detail');
+    $('#details').empty();
+    app.showOnly('.detail-view');
 
-    $('#book-detail').append(app.render('book-detail-template', ctx[0]));
+    $('#details').append(app.render('book-detail-template', ctx[0]));
   }
 
 module.bookView = bookView;
