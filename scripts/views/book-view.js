@@ -11,9 +11,15 @@ var app = app || {};
 
 (function(module) {
 
+  function menuReset () {
+    $('.nav').hide();
+  }
+
   const bookView = {};
 
   bookView.initIndexPage = () => {
+    menuReset();
+
     $('#book-list').empty();
     $('#details').empty();
 
@@ -22,6 +28,8 @@ var app = app || {};
   }
 
   bookView.initAddBook = function () {
+    menuReset();
+
     $('#book-list').empty();
     $('#details').empty();
 
@@ -40,21 +48,35 @@ var app = app || {};
       });
       console.log(bookFormData);
       
-      //WHERE IS OUR CREATEBOOK METHOD?
       app.Book.createBook(bookFormData);
     })
   };
 
   bookView.initDetailPage = function (ctx) {
+    menuReset();
+
     $('#book-list').empty();
     $('#details').empty();
-
-    console.log(ctx);
-
     app.showOnly('#details');
-
+    console.log(`This is the context of the object: `);
+    console.log(ctx);
+    
     $('#details').append(app.render('book-detail-template', ctx[0]));
+
+    $('#book-delete').on('click', function() {
+      console.log('THIS WILL PERMANENTLY DELETE THIS RECORD');
+      //Why is "this" undefined?
+      // console.log(ctx[book_id]);
+      app.Book.deleteBook(ctx);
+    });
+
   }
+
+  // bookView.deleteBookDetail = function (id) {
+  //   menuReset();
+
+  // }
+
 
 module.bookView = bookView;
 

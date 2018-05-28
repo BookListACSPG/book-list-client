@@ -10,9 +10,6 @@ errorView.initErrorPage = () => {
   $('.container').hide();
   $('.error-view').show();
   $('error-message').empty();
-
-  // var template = Handlebars.compile($('#error-template').text());
-
   $('#error-message').append(app.render('error-template', err));
 }
 

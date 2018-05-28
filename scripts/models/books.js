@@ -5,11 +5,6 @@ var app = app || {};
 (function(module) {
 
 function Book (bookObject) {
-  // this.author = bookObject.author;
-  // this.title = bookObject.title;
-  // this.isbn = bookObject.isbn;
-  // this.image_url = bookObject.imageUrl;
-  // this.description = bookObject.description;
 
   Object.keys(bookObject).forEach(keys => {
     this[keys] = bookObject[keys];
@@ -46,8 +41,17 @@ Book.fetchAll = function (callback) {
     .then(next)
   }
 
-  
-
+  Book.deleteBook = (id) => {
+    console.log(id);
+    console.log('This deleteBook method is being hit');
+    $.ajax({
+      url: `${app.ENVIRONMENT.apiUrl}/api/v1/books/${id}`,
+      method: 'DELETE',
+    })
+    .then(console.log(id))
+    .then(() => page('/'))
+    .catch(app.errorView.errorCallback);
+  }
 
 
 module.Book = Book;
